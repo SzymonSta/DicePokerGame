@@ -1,12 +1,14 @@
 package pl.sajgon;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class RandomDiceValueGeneratorTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertTrue;
+public class RandomDiceValueGeneratorTest {
+    RandomDiceValueGenerator randomDiceValueGenerator = new RandomDiceValueGenerator();
 
-    public void testRandomDiceValueGenerate() {
+    @Test
+    public void should_return_number_between_1_and_6() {
         //given
-        RandomDiceValueGenerator randomDiceValueGenerator = new RandomDiceValueGenerator();
         int randomNumber;
         //when
         randomNumber = randomDiceValueGenerator.randomDiceValueGenerate();

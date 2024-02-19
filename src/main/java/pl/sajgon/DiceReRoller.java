@@ -24,13 +24,11 @@ public class DiceReRoller {
             }
 
             diceToReRollList.addAll(randomDicesGenerator.randomDicesGenerator(numberOfDiceToReRoll));
-            System.out.println(diceToReRollList.size());
 
             for (Dice dice : diceToRemove) {
                 diceToReRollList.remove(dice);
             }
             diceToReRollList.sort(Comparator.comparing(Dice::getDiceValue));
-            System.out.println(diceToReRollList.size());
             return diceToReRollList;
         }
 
