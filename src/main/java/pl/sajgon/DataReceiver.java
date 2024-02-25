@@ -24,7 +24,7 @@ public class DataReceiver {
         }
         String returnData = String.valueOf(charArray).replaceAll(" ", "");
 
-        if (returnData.length() >= 6) {
+        if (returnData.length() > 5) {
             System.out.println("incorrect data, to many chars input");
             return "ERROR";
         }

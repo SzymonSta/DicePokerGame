@@ -12,7 +12,7 @@ public class DiceReRoller {
         int numberOfDiceToReRoll = dataInputToReRoll.length();
         if (dataInputToReRoll.equals("All") || dataInputToReRoll.equals("ALL") ||
                 dataInputToReRoll.equals("all")) {
-            return randomDicesGenerator.randomDicesGenerator(6);
+            return randomDicesGenerator.randomDicesGenerator(5);
         } else {
 
             char[] reRollCharArray = dataInputToReRoll.toCharArray();

@@ -12,14 +12,23 @@ public class Main {
         RandomDicesGenerator randomDicesGenerator = new RandomDicesGenerator();
         DiceReRoller diceReRoller = new DiceReRoller();
         Scanner scanner = new Scanner(System.in);
+        HandDescriptor scoreCounter = new HandDescriptor();
+        String rerun;
 
-        menu.welcomeMenuPrinter();
-        List<Dice> currentDices = new ArrayList<>(randomDicesGenerator.randomDicesGenerator(6));
-        currentDices.sort(Comparator.comparing(Dice::getDiceValue));
-        System.out.println(currentDices);
-        menu.reRollMenu();
-        String diceToReRoll = dataReceiver.dataReceivedFromTheUser(scanner);
-        currentDices = diceReRoller.reRolledDices(currentDices, diceToReRoll);
-        System.out.println("Dice after re-roll: " + currentDices);
+        do {
+            menu.welcomeMenuPrinter();
+            List<Dice> currentDices = new ArrayList<>(randomDicesGenerator.randomDicesGenerator(5));
+            currentDices.sort(Comparator.comparing(Dice::getDiceValue));
+            System.out.println(currentDices);
+            menu.reRollMenu();
+            String diceToReRoll = dataReceiver.dataReceivedFromTheUser(scanner);
+            currentDices = diceReRoller.reRolledDices(currentDices, diceToReRoll);
+            System.out.println("Dice after re-roll: " + currentDices);
+            System.out.println(scoreCounter.getHandDescription(currentDices));
+
+            System.out.println("Do You wont to try again? Y/N");
+            System.out.print("--->");
+            rerun = scanner.nextLine();
+        }while(rerun.equals("y") || rerun.equals("Y"));
     }
 }

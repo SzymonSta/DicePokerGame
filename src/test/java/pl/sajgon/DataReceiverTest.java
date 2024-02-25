@@ -14,17 +14,17 @@ class DataReceiverTest implements SampleScanner{
         //when
         String returnedString = dataReceiver.dataReceivedFromTheUser(createSampleScanner(dataReceiver.dataFromTheUser));
         //then
-        assertEquals(returnedString, "1534");
+        assertEquals("1534", returnedString);
     }
 
     @Test
     void illegal_number_of_parameters(){
         //given
-        dataReceiver.dataFromTheUser = "1, 2, 2, 4, 3, 6, 7, k";
+        dataReceiver.dataFromTheUser = "1, 2, 2, 4, k, 7, 5, 6";
         //when
         String returnedString = dataReceiver.dataReceivedFromTheUser(createSampleScanner(dataReceiver.dataFromTheUser));
         //then
-        assertEquals(returnedString, "ERROR");
+        assertEquals("ERROR", returnedString );
     }
 
     @Test
@@ -34,6 +34,6 @@ class DataReceiverTest implements SampleScanner{
         //when
         String returnedString = dataReceiver.dataReceivedFromTheUser(createSampleScanner(dataReceiver.dataFromTheUser));
         //then
-        assertEquals(returnedString, "all");
+        assertEquals("all", returnedString);
     }
 }
